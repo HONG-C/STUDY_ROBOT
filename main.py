@@ -18,9 +18,9 @@ class SCARA_BOT:
     self.theta_2=radians(int(self.theta_2))
 
 
-class SCARA_BOT_HOM(SCARA_BOT):
-  def __init__(self,theta_1,theta_2,D):
-    SCARA_BOT.__init__(self,theta_1,theta_2,D)
+class SCARA_BOT_HOM_EASY(SCARA_BOT):
+  def __init__(self,x_pos,y_pos,theta_1,theta_2,D):
+    SCARA_BOT.__init__(self,x_pos,y_pos,theta_1,theta_2,D)
 
   def draw_line(self):
     self.CHANGE_DEGREE()
@@ -38,21 +38,23 @@ class SCARA_BOT_HOM(SCARA_BOT):
     # plt.plot([0,D*cos(theta_1+1.57)],[0,D*sin(theta_1+1.57)])
     plt.plot([D*cos(theta_1),L*cos(theta_3)],[D*sin(theta_1),L*sin(theta_3)],marker='*')
     plt.plot([0],[0],"yo")#로봇팔이 최종적으로 가르키는 위치
-    plt.plot([L*cos(theta_3)],[L*sin(theta_3)],"ro")#로봇팔이 최종적으로 가르키는 위치
-    plt.title('final_robot_position:\nx:{0} y:{1}'.format(L*cos(theta_3),L*sin(theta_3)), loc='left', pad=20)
+    self.x_pos=L*cos(theta_3)
+    self.y_pos=L*sin(theta_3)
+    print("end_effector_pos:x={0} y={1}".format(self.x_pos,self.y_pos))
+    plt.plot([self.x_pos],[self.y_pos],"ro")#로봇팔이 최종적으로 가르키는 위치
+    plt.title('final_robot_position:\nx:{0} y:{1}'.format(self.x_pos,self.y_pos), loc='left', pad=20)
     plt.show()
 
-a=0
-b=0
-c=1
-print("단순 ㄱ자 모형 로봇팔입니다.로봇팔 길이는 1")
-a=input("첫번째 모터 각도를 입력하세요")#이때는 60분법으로 입력받음
-b=input("두번째 모터 각도를 입력하세요")#이때는 60분법으로 입력받음
-print("첫번째 모터 각:{0}  두번째 모터 각:{1}".format(a,b))
 
-scr_bot_1=SCARA_BOT(1,1,a,b,c)
-scr_bot_1.CHANGE_DEGREE()
-print("첫번째 모터 각:{0}  두번째 모터 각:{1}".format(scr_bot_1.theta_1,scr_bot_1.theta_2))
+
+arm_length=1#로봇팔 길이
+print("단순 ㄱ자 모형 로봇팔입니다.로봇팔 길이는 1")
+angle_a=input("첫번째 모터 각도를 입력하세요")#이때는 60분법으로 입력받음
+angle_b=input("두번째 모터 각도를 입력하세요")#이때는 60분법으로 입력받음
+print("첫번째 모터 각:{0}  두번째 모터 각:{1}".format(angle_a,angle_b))
+
+scr_bot_1=SCARA_BOT_HOM_EASY(1,1,angle_a,angle_b,arm_length)
+scr_bot_1.draw_line()
 # scr_bot_1.draw_line()
 # scr_bot_1=SCARA_BOT_HOM(a,b,c)
 # scr_bot_1.draw_line()
