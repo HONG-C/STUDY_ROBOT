@@ -1,0 +1,32 @@
+1.roscore강제 종료를 위해서:
+killall -9 rosmaster
+
+2.깃허브 사용법 가이드:
+https://gist.github.com/godori/355391c91d2f6725aee8f273f095e87c
+위에꺼가 쉬운거 아래꺼가 자세한거
+https://velog.io/@dysim361/%EC%9A%B0%EB%B6%84%ED%88%ACubunto-GitHub-%EC%97%B0%EB%8F%99-%EB%B0%8F-%EC%97%85%EB%A1%9C%EB%93%9C
+
+3.
+파일 경로에 들어가서 git init
+git add 파일이름
+git commit -m "메모할 내용"
+git status
+git remote add origin https://github.com/HONG-C/ROS_KMUselfdriving.git
+만약 fatal:origin리모트가 있습니다가 뜨면 sudo git remote remove origin
+sudo git fetch origin
+sudo git push origin +master
+
+4.터미널 창 여러개 열기(터미네이터)
+설치:sudo apt-get install terminator
+* 수평 분할 : Ctrl + Shift + O
+* 수직 분할 :  : Ctrl + Shift + E
+* 다음 창 활성화 : Ctrl + Tab   or   Ctrl + Shift + N
+* 이전 창 활성화 : Ctrl + Shift + Tab   or   Ctrl + Shift + P
+* 현재 활성화 된 창 닫기 : Ctrl + Shift + W
+* 터미네이터 실행 : Ctrl + Alt + T
+* 터미네이터 종료 : Ctrl + Shift + Q
+* 전체화면 : F11
+
+
+
+
