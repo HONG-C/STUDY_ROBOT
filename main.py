@@ -2,7 +2,6 @@ import matplotlib.pyplot as plt
 from math import *
 
 
-
 #모터의 입력 값:theta_1,theta_2
 #로봇팔의 길이:D
 class SCARA_BOT:
@@ -45,6 +44,11 @@ class SCARA_BOT_HOM_EASY(SCARA_BOT):
     plt.title('final_robot_position:\nx:{0} y:{1}'.format(self.x_pos,self.y_pos), loc='left', pad=20)
     plt.show()
 
+class SCARA_BOT_HOM_HARD(SCARA_BOT):#팔의 길이가 다른 스칼라봇용 함수
+  def __init__(self,x_pos,y_pos,theta_1,theta_2,D):
+    SCARA_BOT.__init__(self,x_pos,y_pos,theta_1,theta_2,D_1,D_2)
+  
+  pass
 
 
 arm_length=1#로봇팔 길이
